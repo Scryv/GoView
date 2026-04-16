@@ -7,6 +7,7 @@
 ---
 
 ## How to install
+> can also use the installer.sh script that got added
 1. `git clone https://github.com/Scryv/GoView.git`
 2. `cd GoView`
 3. `go build -o goview main.go`
