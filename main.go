@@ -47,39 +47,51 @@ func showImage(w fyne.Window, path string) {
 }
 
 func main() {
-	var current int
-	a := app.New()
-	w := a.NewWindow("GoView")
+	args := os.Args
+	if len(args) > 1 { //for click behav
+		path := args[1]
 
-	fileData, filePath := folderSpy()
-	log.Println(fileData, filePath)
+		a := app.New()
+		w := a.NewWindow("GoView")
 
-	path := filePath + "/" + fileData[current]
-
-	image := canvas.NewImageFromFile("images.jpg")
-	image.FillMode = canvas.ImageFillOriginal
-
-	ctrlTab := &desktop.CustomShortcut{KeyName: fyne.KeyTab, Modifier: fyne.KeyModifierControl}
-	ctrlAltTab := &desktop.CustomShortcut{KeyName: fyne.KeyTab, Modifier: fyne.KeyModifierControl | fyne.KeyModifierAlt}
-
-	w.Canvas().AddShortcut(ctrlTab, func(shortcut fyne.Shortcut) {
-		if current < len(fileData)-1 {
-			current++
-		}
-		path := filePath + "/" + fileData[current]
-		fmt.Println(path)
 		showImage(w, path)
-	})
-	w.Canvas().AddShortcut(ctrlAltTab, func(shortcut fyne.Shortcut) {
-		if current > 0 {
-			current--
-		}
+
+		w.ShowAndRun()
+		return
+	} else {
+		var current int
+		a := app.New()
+		w := a.NewWindow("GoView")
+
+		fileData, filePath := folderSpy()
+		log.Println(fileData, filePath)
+
 		path := filePath + "/" + fileData[current]
+
+		image := canvas.NewImageFromFile("images.jpg")
+		image.FillMode = canvas.ImageFillOriginal
+
+		ctrlTab := &desktop.CustomShortcut{KeyName: fyne.KeyTab, Modifier: fyne.KeyModifierControl}
+		ctrlAltTab := &desktop.CustomShortcut{KeyName: fyne.KeyTab, Modifier: fyne.KeyModifierControl | fyne.KeyModifierAlt}
+
+		w.Canvas().AddShortcut(ctrlTab, func(shortcut fyne.Shortcut) {
+			if current < len(fileData)-1 {
+				current++
+			}
+			path := filePath + "/" + fileData[current]
+			fmt.Println(path)
+			showImage(w, path)
+		})
+		w.Canvas().AddShortcut(ctrlAltTab, func(shortcut fyne.Shortcut) {
+			if current > 0 {
+				current--
+			}
+			path := filePath + "/" + fileData[current]
+			showImage(w, path)
+		})
+
 		showImage(w, path)
-	})
 
-	showImage(w, path)
-
-	w.ShowAndRun()
-
+		w.ShowAndRun()
+	}
 }
