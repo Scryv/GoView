@@ -1,5 +1,5 @@
 # GoView 
-[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://github.com/Scryv/GoView/blob/main/LICENSE)  
+[![License: GPL v2](https://img.shields.io/badge/License-GPL_v2-blue.svg)](https://github.com/Scryv/GoView/blob/main/LICENSE)  
 **GoView** is a open source image viewer made in golang together with cross platform ui toolkit called fyne it for now only supports png, jpg etc but will be able to work for a larger scope of file types in future  
 > Still being worked on and for now just does the basics
 <img src="https://github.com/Scryv/GoView/blob/main/gopherlogo/gophergoview.png" width="600px">
