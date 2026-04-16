@@ -9,11 +9,24 @@
 ## How to install
 1. `git clone https://github.com/Scryv/GoView.git`
 2. `cd GoView`
-3. `sudo mv GoView /usr/local/bin/`
-4. `GoView` in a preferred directory<br>
+3. `go build -o goview main.go`
+4. `sudo mv goview /usr/local/bin/`
+5. `GoView` in a preferred directory<br>
 **And enjoy :)**
 
-
+### Add as primary ImgViewer(OPTIONAL)
+1. `nano ~/.local/share/applications/goview.desktop`
+<pre>
+[Desktop Entry]
+Name=GoView Image Viewer
+Exec=/usr/local/bin/goview %f
+Type=Application
+MimeType=image/png;image/jpg;
+NoDisplay=true
+</pre>
+3. `xdg-mime default goview.desktop image/jpg`
+4. `xdg-mime default goview.desktop image/png`
+  
 ## Features  
 ### Cycling trough images 
 when opening GoView from terminal it takes path of where u opened it and open the first picture u can use **Ctrl+Tab** to cycle forward and **Ctrl+Alt+tab** to go backwards
