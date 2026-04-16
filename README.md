@@ -10,8 +10,8 @@
 1. `git clone https://github.com/Scryv/GoView.git`
 2. `cd GoView`
 3. `sudo mv GoView /usr/local/bin/`
-4. `GoView` <br>
-And enjoy :)
+4. `GoView` in a preferred directory<br>
+**And enjoy :)**
 
 
 ## Features  
