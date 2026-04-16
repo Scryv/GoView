@@ -15,6 +15,7 @@
 **And enjoy :)**
 
 ### Add as primary ImgViewer(OPTIONAL)
+> Image Cycling does not work here yet just single view
 1. `nano ~/.local/share/applications/goview.desktop`
 <pre>
 [Desktop Entry]
