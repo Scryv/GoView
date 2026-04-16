@@ -32,5 +32,5 @@ NoDisplay=true
 ## Features  
 ### Cycling trough images 
 when opening GoView from terminal it takes path of where u opened it and open the first picture u can use **Ctrl+Tab** to cycle forward and **Ctrl+Alt+tab** to go backwards
-### Command goview "image.png"
+### Command `goview "image.png"`
 will display a specific image but can also just run goview within a folder then u can cycle between all images that are within that folder
