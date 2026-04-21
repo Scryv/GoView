@@ -9,6 +9,7 @@ import (
 	"io/ioutil"
 	"log"
 	"os"
+	"path/filepath"
 )
 
 func folderSpy() (data []string, path string) {
@@ -23,17 +24,13 @@ func folderSpy() (data []string, path string) {
 
 	for _, file := range files {
 		name := file.Name()
-		if len(name) < 4 {
-			log.Println(name + " too short")
-			continue
-		}
-
-		switch name[len(name)-4:] {
-		case ".jpg":
+		if filepath.Ext(name) == ".jpg" {
 			data = append(data, name)
-		case ".png":
+		} else if filepath.Ext(name) == ".jpeg" {
 			data = append(data, name)
-		default:
+		} else if filepath.Ext(name) == ".png" {
+			data = append(data, name)
+		} else {
 			log.Println(name + "Not an image")
 		}
 	}
